@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+// import { FormControl } from 'react-bootstrap';
 
 
 class SearchBar extends Component {
@@ -24,13 +25,13 @@ class SearchBar extends Component {
     return (
       <form onSubmit={this.handleOnSubmit} className="input-group">
         <input
-          placeholder="Search"
+          placeholder="Search Pictures"
           className="form-control"
           value={this.state.term}
           onChange={this.handleOnChange}
         />
         <span className="input-group-btn">
-          <button type="submit" className="btn btn-secondary">Submit</button>
+          <button type="submit" className="btn btn-primary">Submit</button>
         </span>
       </form>
     );
