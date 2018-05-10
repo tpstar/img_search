@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-// import { FormControl } from 'react-bootstrap';
+import { fetchPictures } from "../actions";
 
 
 class SearchBar extends Component {
   constructor(props) {
     super(props);
-
     this.state = { term: "" };
   }
 
@@ -16,8 +15,8 @@ class SearchBar extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault(); // prevent the page from refreshing
-    // fetch pictures here
-    console.log(this.state.term);
+    // fetch pictures
+    this.props.fetchPictures(this.state.term);
     this.setState({term: ""}) // initialize the search term
   }
 
@@ -38,5 +37,4 @@ class SearchBar extends Component {
   }
 }
 
-
-export default SearchBar;
+export default connect(null, { fetchPictures })(SearchBar);
