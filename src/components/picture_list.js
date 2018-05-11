@@ -12,5 +12,9 @@ class PictureList extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  const { pictures } = state; //pictures from reducers
+  console.log('mapstatetoprops', pictures);
+}
 
-export default connect(null,{})(PictureList);
+export default connect(mapStateToProps,{})(PictureList);
