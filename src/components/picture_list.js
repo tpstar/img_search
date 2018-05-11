@@ -6,13 +6,12 @@ class PictureList extends Component {
   renderPictures(pictureData) {
 
     const {title, link, media } = pictureData;
-    // const pictureSource = pictureData.media.m;
-    console.log(media.m)
 
     return (
-      <div key={link}>
+      <figure key={link}>
         <img src={media.m} alt={title} className="picture"/>
-      </div>
+        <figcaption>{title}</figcaption>
+      </figure>
     );
   }
 
