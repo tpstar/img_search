@@ -7,6 +7,7 @@ export default function(state=INITIAL_STATE, action) {
     case FETCH_PICTURES:
       console.log('reducer', action.payload);
       return [...state, action.payload];
+    default:
+      return state;
   }
-  return state;
 }
