@@ -3,18 +3,28 @@ import { connect } from "react-redux";
 
 class PictureList extends Component {
 
+  renderPictures(pictureData) {
+
+    const {title, link, media } = pictureData;
+    // const pictureSource = pictureData.media.m;
+    console.log(media.m)
+
+    return (
+      <div key={link}>
+        <img src={media.m} alt={title} className="picture"/>
+      </div>
+    );
+  }
+
   render() {
     return (
-      <p>
-        Picture List
-      </p>
+      <div>
+        {this.props.pictures.map(this.renderPictures)}
+      </div>
     );
   }
 }
 
-const mapStateToProps = state => {
-  const { pictures } = state; //pictures from reducers
-  console.log('mapstatetoprops', pictures);
-}
+const mapStateToProps = ({ pictures }) => ({ pictures });
 
 export default connect(mapStateToProps,{})(PictureList);
