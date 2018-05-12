@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import imagesLoaded from 'imagesloaded';
+import { PictureCard } from './picture_card';
 
 
 class PictureList extends Component {
@@ -14,7 +15,7 @@ class PictureList extends Component {
   }
 
   resizeInstance(instance){
-    console.log(this);
+    // console.log(this);
      let item = instance.elements[0];
      this.resizeGridItem(item)
   }
@@ -36,18 +37,13 @@ class PictureList extends Component {
     const {title, link, media } = pictureData;
 
     return (
-      <div className="item" ref="item" key={link}>
-        <div className="content">
-          <img src={media.m} alt={title} className="picture" ref="picture"/>
-          <p>{title}</p>
-        </div>
-      </div>
+      <PictureCard key={link} title={title} link={link} media={media}/>
     );
   }
 
   render() {
     return (
-      <div className="grid" ref="grid">
+      <div className="grid">
         {this.props.pictures.map(this.renderPictures)}
       </div>
     );
