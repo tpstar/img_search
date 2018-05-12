@@ -21,18 +21,25 @@ class SearchBar extends Component {
   }
 
   render() {
+    const styles = {
+      marginBottom: '30px',
+      width: '80%',
+      marginLeft: '10%'
+    }
     return (
-      <form onSubmit={this.handleOnSubmit} className="input-group">
-        <input
-          placeholder="Search Pictures"
-          className="form-control"
-          value={this.state.term}
-          onChange={this.handleOnChange}
-        />
-        <span className="input-group-btn">
-          <button type="submit" className="btn btn-primary">Submit</button>
-        </span>
-      </form>
+      <div style={styles}>
+        <form onSubmit={this.handleOnSubmit} className="input-group">
+          <input
+            placeholder="Type Your Search Term Here"
+            className="form-control"
+            value={this.state.term}
+            onChange={this.handleOnChange}
+          />
+          <span className="input-group-btn">
+            <button type="submit" className="btn btn-secondary">Submit</button>
+          </span>
+        </form>
+      </div>
     );
   }
 }
