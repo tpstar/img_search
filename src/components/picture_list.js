@@ -25,6 +25,7 @@ class PictureList extends Component {
        this.resizeGridItem(allItems[x]);
     }
     let allItemsAfterImgLoaded = document.getElementsByClassName("item");
+    //after images are loaded within a grid item, it is resized to ensure that the content is fully dispalyed
     for(let x=0;x<allItems.length;x++){
        imagesLoaded( allItemsAfterImgLoaded[x], this.resizeInstance.bind(this));
     }
