@@ -7,7 +7,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="container">
-        <Title />
+        <Title>Search Photos</Title>
         <SearchBar />
         <PictureList />
       </div>

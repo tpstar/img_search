@@ -1,9 +1,9 @@
 import React from "react";
 
-const Title = () => {
+const Title = (props) => {
   return (
     <header style={styles}>
-      <h1>Search Photos</h1>
+      <h1>{props.children}</h1>
     </header>
   )
 }
