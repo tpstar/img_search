@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import imagesLoaded from 'imagesloaded';
+
 
 class PictureList extends Component {
 
@@ -11,10 +13,20 @@ class PictureList extends Component {
      item.style.gridRowEnd = "span "+rowSpan;
   }
 
+  resizeInstance(instance){
+    console.log(this);
+     let item = instance.elements[0];
+     this.resizeGridItem(item)
+  }
+
   componentDidUpdate() {
     let allItems = document.getElementsByClassName("item");
     for(let x=0; x<allItems.length ;x++){
        this.resizeGridItem(allItems[x]);
+    }
+    let allItemsAfterImgLoaded = document.getElementsByClassName("item");
+    for(let x=0;x<allItems.length;x++){
+       imagesLoaded( allItemsAfterImgLoaded[x], this.resizeInstance.bind(this));
     }
   }
 
