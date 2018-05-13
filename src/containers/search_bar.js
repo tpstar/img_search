@@ -23,8 +23,8 @@ class SearchBar extends Component {
   render() {
     const styles = {
       marginBottom: '30px',
-      width: '80%',
-      marginLeft: '10%'
+      width: '60%',
+      marginLeft: '20%'
     }
     return (
       <div style={styles}>
