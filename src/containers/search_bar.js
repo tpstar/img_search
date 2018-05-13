@@ -23,11 +23,11 @@ class SearchBar extends Component {
   render() {
     const styles = {
       marginBottom: '30px',
-      width: '60%',
-      marginLeft: '20%'
+      // width: '60%',
+      // marginLeft: '20%'
     }
     return (
-      <div style={styles}>
+      <div style={styles} id="search-bar">
         <form onSubmit={this.handleOnSubmit} className="input-group">
           <input
             placeholder="Type Your Search Term Here"
