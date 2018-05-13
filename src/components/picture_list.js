@@ -6,6 +6,18 @@ import { PictureCard } from './picture_card';
 
 class PictureList extends Component {
 
+  resizeAllGridItem() {
+    let allItems = document.getElementsByClassName("item");
+    for(let x=0; x<allItems.length ;x++){
+       this.resizeGridItem(allItems[x]);
+    }
+    let allItemsAfterImgLoaded = document.getElementsByClassName("item");
+    //after images are loaded within a grid item, it is resized to ensure that the content is fully dispalyed
+    for(let x=0;x<allItems.length;x++){
+       imagesLoaded( allItemsAfterImgLoaded[x], this.resizeInstance.bind(this));
+    }
+  }
+
   resizeGridItem(item){
      let grid = document.getElementsByClassName("grid")[0];
      let rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
@@ -17,19 +29,16 @@ class PictureList extends Component {
   resizeInstance(instance){
     // console.log(this);
      let item = instance.elements[0];
-     this.resizeGridItem(item)
+     this.resizeGridItem(item);
   }
 
   componentDidUpdate() {
-    let allItems = document.getElementsByClassName("item");
-    for(let x=0; x<allItems.length ;x++){
-       this.resizeGridItem(allItems[x]);
-    }
-    let allItemsAfterImgLoaded = document.getElementsByClassName("item");
-    //after images are loaded within a grid item, it is resized to ensure that the content is fully dispalyed
-    for(let x=0;x<allItems.length;x++){
-       imagesLoaded( allItemsAfterImgLoaded[x], this.resizeInstance.bind(this));
-    }
+    this.resizeAllGridItem();
+    window.addEventListener("resize", this.resizeAllGridItem.bind(this));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.resizeAllGridItem.bind(this));
   }
 
   renderPictures(pictureData) {
