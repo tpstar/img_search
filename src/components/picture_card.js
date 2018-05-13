@@ -27,7 +27,7 @@ const styles = {
   },
   itemStyle: {
     padding: '0',
-    background: '#f1f2f5'
+    background: '#f7f9fb'
   }
 
 }
